@@ -1,0 +1,225 @@
+/**#include <iostream>
+
+using namespace std;
+int v[35];
+bool OK(int k)
+{
+  for(unsigned i=1;i<=k-1;++i)
+        if(v[k]==v[i]) return 0;
+  return 1;
+}
+unsigned m;
+bool sol(int k)
+{
+    return (k==m);
+}
+void afis(int k)
+{
+    for(unsigned i=1;i<=k;++i) cout<<v[i]<<' ';
+    cout<<'\n';
+}
+sau
+void afis()
+{
+    for(unsigned i=1;i<=m;++i) cout<<v[i]<<' ';
+    cout<<'\n';
+}
+unsigned x;
+void bkt(int k)
+{
+    for(unsigned i=1;i<=x;++i)
+    {
+        v[k]=i;
+        if(OK(k))
+            if(sol(k)) afis(k);
+                else bkt(k+1);
+    }
+}
+int main()
+{
+    cin>>x>>m;
+    if(m<=x) bkt(1);
+        else cout<<"NU";
+    return 0;
+}
+#include <iostream>
+
+using namespace std;
+int v[35];
+unsigned b;
+bool OK(int k)
+{
+  if(v[1]!=b) return 0;
+  for(unsigned i=1;i<=k-1;++i)
+        if(v[k]==v[i]) return 0;
+  return 1;
+}
+unsigned m;
+bool sol(int k)
+{
+    return (k==m);
+}
+void afis(int k)
+{
+    for(unsigned i=1;i<=k;++i) cout<<v[i]<<' ';
+    cout<<'\n';
+}
+//sau
+void afis()
+{
+    for(unsigned i=1;i<=m;++i) cout<<v[i]<<' ';
+    cout<<'\n';
+}
+unsigned x;
+void bkt(int k)
+{
+    for(unsigned i=1;i<=x;++i)
+    {
+        v[k]=i;
+        if(OK(k))
+            if(sol(k)) afis(k);
+                else bkt(k+1);
+    }
+}
+int main()
+{
+    cin>>x>>m>>b;
+    if(m<=x)
+        if(b>=1 && b<=x) bkt(1);
+            else cout<<b<<"NU este ...";
+       else cout<<"NU";
+    return 0;
+}
+
+v[i] 2 3 4    4
+  i  1 2 3
+     1...k-1  k
+#include <iostream>
+
+using namespace std;
+int v[35];
+bool OK(int k)
+{
+    if(k>1 && v[k]<=v[k-1]) return 0;
+    return 1;
+}
+unsigned m;
+bool sol(int k)
+{
+    return (k==m);
+}
+void afis(int k)
+{
+    for(unsigned i=1;i<=k;++i) cout<<v[i]<<' ';
+    cout<<'\n';
+}
+//sau
+void afis()
+{
+    for(unsigned i=1;i<=m;++i) cout<<v[i]<<' ';
+    cout<<'\n';
+}
+unsigned x;
+void bkt(int k)
+{
+    for(unsigned i=1;i<=x;++i)
+    {
+        v[k]=i;
+        if(OK(k))
+            if(sol(k)) afis(k);
+                else bkt(k+1);
+    }
+}
+int main()
+{
+    cin>>x>>m;
+    if(m<=x) bkt(1);
+        else cout<<"NU";
+    return 0;
+}
+4 3
+1 2 3
+1 2 4
+1 3 4
+2 3 4
+
+5 3
+1 2 3
+1 2 4
+1 2 5
+1 3 4
+1 3 5
+1 4 5
+2 3 4
+2 3 5
+2 4 5
+3 4 5
+*/
+#include <iostream>
+
+using namespace std;
+int v[35];
+unsigned c;
+bool OK(int k)
+{
+    if(v[1]!=c) return 0;
+    if(k>1 && v[k]<=v[k-1]) return 0;
+    return 1;
+}
+unsigned m;
+bool sol(int k)
+{
+    return (k==m);
+}
+void afis(int k)
+{
+    for(unsigned i=1;i<=k;++i) cout<<v[i]<<' ';
+    cout<<'\n';
+}
+//sau
+void afis()
+{
+    for(unsigned i=1;i<=m;++i) cout<<v[i]<<' ';
+    cout<<'\n';
+}
+unsigned x;
+void bkt(int k)
+{
+    for(unsigned i=c;i<=x;++i)
+    {
+        v[k]=i;
+        if(OK(k))
+            if(sol(k)) afis(k);
+                else bkt(k+1);
+    }
+}
+int main()
+{
+    cin>>x>>m>>c;
+    if(m<=x)
+        if(c>=1 && c<=x) bkt(1);
+            else cout<<c<<"NU este ...";
+       else cout<<"NU";
+    return 0;
+}
+
+/**5 3 2
+2 3 4
+2 3 5
+2 4 5
+sau
+7 4 2
+2 3 4 5
+2 3 4 6
+2 3 4 7
+2 3 5 6
+2 3 5 7
+2 3 6 7
+2 4 5 6
+2 4 5 7
+2 4 6 7
+*/
+ {b,c,d}
+b _ 3_ e
+  5={a,b,c,d,e}
+   =>5*3=15
